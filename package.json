@@ -1,0 +1,64 @@
+{
+  "name": "webgl-fundamentals",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "npm run lint:script && npm run lint:style",
+    "lint:style": "stylelint --fix \"src/**/*.{css,scss}\"",
+    "lint:script": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
+    "postinstall": "husky install"
+  },
+  "husky": {
+    "pre-commit": "npm run lint"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,tsx,ts}": [
+      "npm run lint:script",
+      "git add ."
+    ],
+    "**/*.{scss}": [
+      "npm run lint:style",
+      "git add ."
+    ]
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue-jsx": "^2.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "postcss": "^8.3.3",
+    "rollup": "^2.60.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-glsl": "^0.4.0",
+    "vite-plugin-stylelint": "^3.0.7",
+    "vue": "^3.2.39",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@amatlash/vite-plugin-stylelint": "^1.2.0",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "commitlint": "^17.1.2",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.5.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.12.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-prettier": "^2.0.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0",
+    "vue-tsc": "^0.40.4"
+  }
+}
